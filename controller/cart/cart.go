@@ -1,13 +1,14 @@
 package cart
 
 import (
-	"gopkg.in/kataras/iris.v6"
-	"wemall/model"
-	"wemall/controller/common"
+	"github.com/kataras/iris/v12"
+	"github.com/zhongyuan332/controller/common"
+	"github.com/zhongyuan332/model"
+	"github.com/zhongyuan332/sessions"
 )
 
 // Create 购物车中添加商品
-func Create(ctx *iris.Context) {
+func Create(ctx iris.Context) {
 	SendErrJSON := common.SendErrJSON
 	var cart model.Cart
 
@@ -26,9 +27,9 @@ func Create(ctx *iris.Context) {
 		SendErrJSON("错误的商品id", ctx)
 		return
 	}
+	session := sessions.Get(ctx)
 
-	session := ctx.Session()
-	openID  := session.GetString("weAppOpenID")
+	openID := session.GetString("weAppOpenID")
 
 	if openID == "" {
 		SendErrJSON("登录超时", ctx)
@@ -40,13 +41,13 @@ func Create(ctx *iris.Context) {
 		SendErrJSON("error", ctx)
 		return
 	}
-	ctx.JSON(iris.StatusOK, iris.Map{
-		"errNo" : model.ErrorCode.SUCCESS,
-		"msg"   : "success",
-		"data"  : iris.Map{
+	ctx.StatusCode(iris.StatusOK)
+	ctx.JSON(iris.Map{
+		"errNo": model.ErrorCode.SUCCESS,
+		"msg":   "success",
+		"data": iris.Map{
 			"id": cart.ID,
 		},
 	})
 	return
 }
-

@@ -2,17 +2,17 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"time"
-	"strconv"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/jinzhu/gorm"
-	"gopkg.in/kataras/iris.v6"
-	"gopkg.in/kataras/iris.v6/adaptors/httprouter"
-	"gopkg.in/kataras/iris.v6/adaptors/sessions"
-	"wemall/config"
-	"wemall/model"
-	"wemall/route"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"github.com/kataras/iris/v12"
+	"github.com/kataras/iris/v12/middleware/logger"
+	"github.com/zhongyuan332/config"
+	"github.com/zhongyuan332/model"
+	"github.com/zhongyuan332/route"
+	"github.com/zhongyuan332/sessions"
+	"os"
+	"strconv"
+	"time"
 )
 
 func init() {
@@ -26,50 +26,45 @@ func init() {
 		db.LogMode(true)
 	}
 
-	db.DB().SetMaxIdleConns(config.DBConfig.MaxIdleConns);
+	db.DB().SetMaxIdleConns(config.DBConfig.MaxIdleConns)
 	db.DB().SetMaxOpenConns(config.DBConfig.MaxOpenConns)
 
-	model.DB = db;
+	model.DB = db
 }
 
 func main() {
-	app := iris.New(iris.Configuration{
-        Gzip    : true, 
-        Charset : "UTF-8",
-	})
+	app := iris.New()
+	app.Use(iris.Compression)                // 启用 Gzip 压缩
+	app.Configure(iris.WithCharset("UTF-8")) // 设置字符集
 
 	if config.ServerConfig.Debug {
-		app.Adapt(iris.DevLogger())
+		app.Logger().SetLevel("debug")
+		app.Use(logger.New())
 	}
 
-	app.Adapt(sessions.New(sessions.Config{
-		Cookie: config.ServerConfig.SessionID,
-		Expires: time.Minute * 20,
-	}))
+	// 创建会话管理器
+	sessions.Initialize(config.ServerConfig.SessionID, time.Minute*20)
 
-	app.Adapt(httprouter.New())
+	app.Use(sessions.Manager.Handler())
 
+	// 注册路由
 	route.Route(app)
-
-	app.OnError(iris.StatusNotFound, func(ctx *iris.Context) {
-		ctx.JSON(iris.StatusOK, iris.Map{
-			"errNo" : model.ErrorCode.NotFound,
-			"msg"   : "Not Found",
-			"data"  : iris.Map{},
+	// 错误处理
+	app.OnErrorCode(iris.StatusNotFound, func(ctx iris.Context) {
+		ctx.JSON(iris.Map{
+			"errNo": model.ErrorCode.NotFound,
+			"msg":   "Not Found",
+			"data":  iris.Map{},
 		})
-
 	})
 
-	app.OnError(500, func(ctx *iris.Context) {
-		ctx.JSON(iris.StatusInternalServerError, iris.Map{
-			"errNo" : model.ErrorCode.ERROR,
-			"msg"   : "error",
-			"data"  : iris.Map{},
+	app.OnErrorCode(500, func(ctx iris.Context) {
+		ctx.JSON(iris.Map{
+			"errNo": model.ErrorCode.ERROR,
+			"msg":   "error",
+			"data":  iris.Map{},
 		})
 	})
 
 	app.Listen(":" + strconv.Itoa(config.ServerConfig.Port))
 }
-
-
-
