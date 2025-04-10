@@ -2,7 +2,7 @@ package common
 
 import (
 	"github.com/kataras/iris/v12"
-	"github.com/zhongyuan332/model"
+	"github.com/zhongyuan332/gmall/model"
 )
 
 // SendErrJSON 有错误发生时，发送错误JSON

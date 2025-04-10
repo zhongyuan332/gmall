@@ -3,7 +3,7 @@ package config
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/zhongyuan332/utils"
+	"github.com/zhongyuan332/gmall/utils"
 	"io/ioutil"
 	"regexp"
 	"strings"

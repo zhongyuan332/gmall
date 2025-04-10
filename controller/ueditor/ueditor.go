@@ -3,9 +3,9 @@ package ueditor
 import (
 	"fmt"
 	"github.com/kataras/iris/v12"
-	"github.com/satori/go.uuid"
-	"github.com/zhongyuan332/config"
-	"github.com/zhongyuan332/utils"
+	uuid "github.com/satori/go.uuid"
+	"github.com/zhongyuan332/gmall/config"
+	"github.com/zhongyuan332/gmall/utils"
 	"io"
 	"mime"
 	"os"

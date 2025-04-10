@@ -29,6 +29,7 @@ Page({
 
         wx.request({
             url : config.api.reqCategoryList,
+            // url: "http://localhost:8012/api/categories",
             success: function(res) {
                 var categories = res.data.data.categories || [];
                 self.setData({

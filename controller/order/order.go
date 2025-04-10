@@ -2,7 +2,7 @@ package order
 
 import (
 	"github.com/kataras/iris/v12"
-	"github.com/zhongyuan332/model"
+	"github.com/zhongyuan332/gmall/model"
 	"time"
 )
 

@@ -2,16 +2,16 @@ package route
 
 import (
 	"github.com/kataras/iris/v12"
-	"github.com/zhongyuan332/config"
-	"github.com/zhongyuan332/controller/admin"
-	"github.com/zhongyuan332/controller/cart"
-	"github.com/zhongyuan332/controller/category"
-	"github.com/zhongyuan332/controller/common"
-	"github.com/zhongyuan332/controller/order"
-	"github.com/zhongyuan332/controller/product"
-	"github.com/zhongyuan332/controller/ueditor"
-	"github.com/zhongyuan332/controller/user"
-	"github.com/zhongyuan332/controller/visit"
+	"github.com/zhongyuan332/gmall/config"
+	"github.com/zhongyuan332/gmall/controller/admin"
+	"github.com/zhongyuan332/gmall/controller/cart"
+	"github.com/zhongyuan332/gmall/controller/category"
+	"github.com/zhongyuan332/gmall/controller/common"
+	"github.com/zhongyuan332/gmall/controller/order"
+	"github.com/zhongyuan332/gmall/controller/product"
+	"github.com/zhongyuan332/gmall/controller/ueditor"
+	"github.com/zhongyuan332/gmall/controller/user"
+	"github.com/zhongyuan332/gmall/controller/visit"
 )
 
 // Route 路由

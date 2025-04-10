@@ -67,6 +67,7 @@ Page({
                     var url = product.images[i].url;
                     product.images[i].url = config.static.imageDomain + url;
                 }
+                console.log("product:"+product.detail)
                 product.contents = JSON.parse(product.detail);
                 for (var i = 0; i < product.contents.length; i++) {
                     if (product.contents[i].type == 'image') {

@@ -3,8 +3,8 @@ package product
 import (
 	"fmt"
 	"github.com/kataras/iris/v12"
-	"github.com/zhongyuan332/controller/common"
-	"github.com/zhongyuan332/model"
+	"github.com/zhongyuan332/gmall/controller/common"
+	"github.com/zhongyuan332/gmall/model"
 	"strconv"
 )
 

@@ -2,9 +2,9 @@ package cart
 
 import (
 	"github.com/kataras/iris/v12"
-	"github.com/zhongyuan332/controller/common"
-	"github.com/zhongyuan332/model"
-	"github.com/zhongyuan332/sessions"
+	"github.com/zhongyuan332/gmall/controller/common"
+	"github.com/zhongyuan332/gmall/model"
+	"github.com/zhongyuan332/gmall/sessions"
 )
 
 // Create 购物车中添加商品
