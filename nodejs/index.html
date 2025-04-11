@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>临沂市尚玺轩家具有限责任公司 - 高端红木家具</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        body {
+            background-color: #f9f5f0;
+            color: #5a3922;
+        }
+
+        header {
+            background: linear-gradient(to right, #873e23, #5a3922);
+            color: #e8d9c5;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+            background-color: #e8d9c5;
+            border-radius: 50%;
+            padding: 10px;
+            border: 2px solid #e8d9c5;
+        }
+
+        .company-info h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .company-info p {
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: #e8d9c5;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #e8d9c5;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        .banner {
+            height: 500px;
+            background-image: url('/api/placeholder/1200/500');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .banner:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(58, 39, 24, 0.7);
+            z-index: 1;
+        }
+
+        .banner-text {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .banner-text h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .banner-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #873e23;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #5a3922;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #5a3922;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .products-section {
+            padding: 80px 0;
+            background-color: #f9f5f0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #5a3922;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #873e23;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            transform: scale(1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 1s ease;
+            display: block;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #5a3922;
+        }
+
+        .product-info p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .product-price {
+            font-size: 22px;
+            color: #873e23;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .contact-section {
+            padding: 80px 0;
+            background-color: #5a3922;
+            color: #e8d9c5;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-info {
+            padding: 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .contact-info h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #e8d9c5;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .contact-info .icon {
+            margin-right: 10px;
+            color: #e8d9c5;
+        }
+
+        .contact-form {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 4px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-group button {
+            background-color: #873e23;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #e8d9c5;
+            color: #5a3922;
+        }
+
+        footer {
+            background-color: #3a2718;
+            color: #e8d9c5;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 20px;
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            color: #e8d9c5;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #873e23;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-container {
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .banner-text h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .banner {
+                height: 400px;
+            }
+
+            .banner-text h2 {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Slider styles */
+        .slider-container {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slider-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background-color: #fff;
+            transform: scale(1.2);
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .slider-btn.prev {
+            left: 20px;
+        }
+
+        .slider-btn.next {
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="logo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <text x="30" y="50" font-size="40" fill="#5a3922">SX</text>
+                    </svg>
+                </div>
+                <div class="company-info">
+                    <h1>临沂市尚玺轩家具有限责任公司</h1>
+                    <p>Linyi Shangxi Xuan Furniture Co., Ltd.</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#products">产品展示</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<section id="home" class="banner">
+    <div class="banner-text">
+        <h2>匠心传承 · 尚品红木</h2>
+        <p>临沂市尚玺轩家具有限责任公司秉承"匠心独运、品质至上"的理念，致力于为您提供高品质的红木家具产品，融合传统技艺与现代审美，打造尊贵舒适的生活空间。</p>
+        <a href="#products" class="btn">浏览产品</a>
+    </div>
+</section>
+
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>关于尚玺轩</h2>
+                <p>临沂市尚玺轩家具有限责任公司成立于2010年，是一家专注于高档红木家具设计、制造与销售的企业。我们拥有一支经验丰富的工匠团队，传承传统榫卯工艺，结合现代设计理念，精心打造每一件家具作品。</p>
+                <p>公司坚持使用优质木材，包括黄花梨、紫檀、酸枝等名贵木种，严格把控生产工艺的每个环节，确保产品的品质与艺术价值。多年来，尚玺轩已发展成为山东地区知名的红木家具品牌，产品远销国内外，深受消费者的信赖与喜爱。</p>
+                <p>我们不仅提供高品质的红木家具产品，还为客户提供专业的空间设计与搭配服务，致力于为每一位客户打造独具韵味的东方生活美学空间。</p>
+            </div>
+            <div class="about-image">
+                <img src="/api/placeholder/600/400" alt="公司工作室">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="products" class="products-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>精品展示</h2>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/400/300" alt="明式太师椅">
+                </div>
+                <div class="product-info">
+                    <h3>明式太师椅</h3>
+                    <p>采用上等黄花梨木材精心打造，继承明代家具风格，线条简洁流畅，榫卯结构精密，坐感舒适，尽显东方古典家具的高雅气质。</p>
+                    <div class="product-price">¥38,800</div>
+                    <a href="#" class="btn">了解详情</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/400/300" alt="紫檀书柜">
+                </div>
+                <div class="product-info">
+                    <h3>紫檀书柜</h3>
+                    <p>精选印度小叶紫檀木材，采用传统榫卯工艺，雕工精细，纹理清晰，内部空间规划合理，既是实用的收纳家具，又是彰显品味的艺术品。</p>
+                    <div class="product-price">¥68,500</div>
+                    <a href="#" class="btn">了解详情</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/400/300" alt="酸枝茶几">
+                </div>
+                <div class="product-info">
+                    <h3>酸枝茶几</h3>
+                    <p>选用优质酸枝木精心制作，设计灵感源自古典家具与现代美学的结合，雕饰简约大方，木纹自然清晰，是客厅中的点睛之作。</p>
+                    <div class="product-price">¥26,800</div>
+                    <a href="#" class="btn">了解详情</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>联系我们</h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>联系方式</h3>
+                <p><span class="icon">📍</span> 地址：山东省临沂市兰山区某某大道888号</p>
+                <p><span class="icon">📞</span> 电话：0539-8888888</p>
+                <p><span class="icon">📱</span> 手机：13800138000</p>
+                <p><span class="icon">✉️</span> 邮箱：info@shangxixuan.com</p>
+                <p><span class="icon">🕙</span> 营业时间：周一至周日 9:00-18:00</p>
+            </div>
+            <div class="contact-form">
+                <h3>在线咨询</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">您的姓名</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">联系电话</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">电子邮箱</label>
+                        <input type="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">咨询内容</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">提交咨询</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <p>临沂市尚玺轩家具有限责任公司</p>
+            <p>Linyi Shangxi Xuan Furniture Co., Ltd.</p>
+        </div>
+        <div class="social-links">
+            <a href="#" title="微信">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M9.5,4C5.36,4 2,6.69 2,10C2,11.89 3.08,13.56 4.78,14.66L4,17L6.5,15.5C7.39,15.81 8.37,16 9.41,16C9.15,15.37 9,14.7 9,14C9,10.69 12.13,8 16,8C16.19,8 16.38,8 16.56,8.03C15.54,5.69 12.78,4 9.5,4M6.5,6.5A1,1 0 0,1 7.5,7.5A1,1 0 0,1 6.5,8.5A1,1 0 0,1 5.5,7.5A1,1 0 0,1 6.5,6.5M11.5,6.5A1,1 0 0,1 12.5,7.5A1,1 0 0,1 11.5,8.5A1,1 0 0,1 10.5,7.5A1,1 0 0,1 11.5,6.5M16,9C13.24,9 11,11.24 11,14C11,16.76 13.24,19 16,19C16.67,19 17.31,18.85 17.89,18.59L20,20L19.5,18.5C20.79,17.5 22,15.87 22,14C22,11.24 19.76,9 16,9M14,11.5A1,1 0 0,1 15,12.5A1,1 0 0,1 14,13.5A1,1 0 0,1 13,12.5A1,1 0 0,1 14,11.5M18,11.5A1,1 0 0,1 19,12.5A1,1 0 0,1 18,13.5A1,1 0 0,1 17,12.5A1,1 0 0,1 18,11.5Z" />
+                </svg>
+            </a>
+            <a href="#" title="微博">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M9.82,13.31C9.46,13.28 9.11,13.37 8.83,13.53C8.24,13.85 7.97,14.5 8.07,15.07C8.14,15.5 8.45,15.84 8.84,16C9.2,16.17 9.62,16.15 9.93,15.93C10.3,15.67 10.57,15.14 10.49,14.64C10.43,14.04 10.16,13.35 9.82,13.31M14.72,15.76C14.71,14.97 14.41,14.22 13.85,13.66C13.3,13.1 12.54,12.8 11.76,12.78C10.94,12.76 10.15,13.07 9.6,13.61C9.04,14.16 8.74,14.93 8.73,15.74C8.73,16.55 9.03,17.33 9.6,17.9C10.14,18.45 10.93,18.77 11.76,18.77C12.58,18.77 13.37,18.46 13.91,17.9C14.46,17.34 14.73,16.57 14.72,15.76M14.71,11.12C14.31,11.12 14,11.06 13.83,10.84C13.67,10.64 13.67,10.23 13.66,9.86C13.65,7.5 12.07,5.5 9.85,4.8C8.77,4.45 7.5,4.31 6.33,4.68C5.91,4.82 5.63,4.95 5.5,5.17C5.39,5.36 5.43,5.64 5.43,5.86C5.46,6.39 5.76,6.58 6.09,6.58C6.7,6.58 6.54,5.41 7.65,5.07C8.23,4.9 9.08,4.94 9.69,5.11C11.3,5.55 12.86,7.43 12.5,9.44C12.39,9.95 12.55,11.12 14.27,10.95C14.56,10.94 14.71,11.03 14.71,11.12M16.61,3.87C15.06,2.69 12.83,2.35 10.93,2.79C10.75,2.83 10.62,2.8 10.56,2.79C10.5,2.78 10.32,2.74 10.26,2.62C10.2,2.5 10.35,2.22 10.35,2.22C10.35,2.22 10.55,1.81 11.03,1.74C11.34,1.69 11.67,1.67 12,1.67C13.71,1.67 15.29,2.04 16.61,2.67C19.3,3.97 21.28,6.42 21.68,9.44C22.07,12.43 21.83,15.03 20.31,17.37C19.96,18 18.45,19.41 16.34,19.97C16.25,20 16.12,20 16.06,19.97C16,19.94 15.9,19.88 15.9,19.77C15.9,19.77 15.8,19.22 16.23,19.09C16.59,19 16.97,18.95 17.35,18.8C17.78,18.65 18.18,18.43 18.54,18.19C19.96,17.24 20.69,15.82 21.1,13.94C21.56,11.86 21.07,9.38 19.86,7.64C18.63,5.94 17,4.64 15.18,4.5C14.9,4.39 14.61,4.3 14.28,4.22C13.95,4.12 13.6,4.03 13.06,3.9C12.89,3.86 12.76,3.79 12.7,3.67C12.66,3.59 12.65,3.49 12.7,3.4C12.78,3.28 12.96,3.14 13.18,3.14C13.46,3.14 14.97,3.4 16.61,3.87M18.93,9.13C18.66,6.59 16.94,4.12 14.66,3.23C12.19,2.28 9.77,2.67 7.64,4.45C5.62,6.15 4.7,8.73 5.08,11.29C5.43,13.56 6.59,14.93 8.18,15.86C9.96,16.91 11

@@ -2,6 +2,11 @@ var Promise  = require('bluebird');
 var OrderAPI = require('../api/OrderAPI');
 
 module.exports = function(app) {
+	// 添加根路径路由 - 将用户重定向到 /admin
+	app.get('/', function(req, res) {
+		res.redirect('/admin');
+	});
+
 	app.get('/admin', function(req, res) {
 		Promise.all([
 			OrderAPI.getTodayOrderCount(req),

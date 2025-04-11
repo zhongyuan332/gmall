@@ -7,8 +7,8 @@ Page({
         itemWidth: '',
         products: []
     },
-    onCategoryTap: function() {
-        
+    onCategoryTap: function(event) {
+        console.log("点击啦", event.currentTarget.dataset)
     },
     onProductTap: function(event) {
         var id = event.currentTarget.dataset.id;
