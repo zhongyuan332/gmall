@@ -50,14 +50,15 @@
             </view>
             <text class="home-text">首页</text>
         </view>
-        <view bindtap="onCartTap" class="tabbar-item tabbar-cart">
+        <!-- <view bindtap="onCartTap" class="tabbar-item tabbar-cart">
             <view>
                 <image class="cart-icon" mode="aspectFit" src="../../icons/cart.png"></image>
             </view>
             <text class="cart-text">购物车</text>
-        </view>
-        <view bindtap="onAddToCartTap" class="tabbar-item tabbar-add-cart"><text>加入购物车</text></view>
-        <view bindtap="onWillBuy" class="tabbar-item tabbar-buy-now"><text>立即购买</text></view>
+        </view> -->
+        <!-- <view bindtap="onAddToCartTap" class="tabbar-item tabbar-add-cart"><text>加入购物车</text></view> -->
+        <!-- <view bindtap="onWillBuy" class="tabbar-item tabbar-buy-now"><text>立即购买</text></view> -->
+        <view bindtap="onConnectBuy" class="tabbar-item tabbar-buy-now"><text>联系购买</text></view>
     </view>
     <template is="buy" data="{{product: product, buyPopupBottom: buyPopupBottom, buyPopupVisible: buyPopupVisible, buyAnimationData: buyAnimationData, onPropertySelect: onPropertySelect}}"/>
 </view>

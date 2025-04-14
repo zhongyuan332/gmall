@@ -53,7 +53,7 @@
 		"Secret"   : ""  /*小程序密钥*/
 	},
 	"software": {
-		"name"        : "wemall微商城", /*软件名称*/
+		"name"        : "尚玺轩商城", /*软件名称*/
 		"version"     : "1.0.0",       /*软件版本*/
 		"officialURL" : "https://www.shen100.com" /*官网地址*/
 	},

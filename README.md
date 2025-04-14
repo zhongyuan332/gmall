@@ -119,12 +119,3 @@ $ go run main.go
 | configuration.dev.json  | 项目配置文件 |
 | main.go  | go主程序入口|
 
-## 技术交流  
-qq群: 32550512  
-
-## 最后
-求star，star就是继续下去的动力  
-
-## License
-[GPL](https://github.com/shen100/wemall/blob/master/LICENSE "")      
-Copyright (c) 2013-present, shen100

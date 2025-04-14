@@ -6,9 +6,10 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/kataras/iris/v12"
 	"github.com/kataras/iris/v12/middleware/logger"
+	log "github.com/zhongyuan332/gmall/backend/logger"
+	model2 "github.com/zhongyuan332/gmall/backend/model"
+	"github.com/zhongyuan332/gmall/backend/route"
 	"github.com/zhongyuan332/gmall/config"
-	"github.com/zhongyuan332/gmall/model"
-	"github.com/zhongyuan332/gmall/route"
 	"github.com/zhongyuan332/gmall/sessions"
 	"os"
 	"strconv"
@@ -29,10 +30,13 @@ func init() {
 	db.DB().SetMaxIdleConns(config.DBConfig.MaxIdleConns)
 	db.DB().SetMaxOpenConns(config.DBConfig.MaxOpenConns)
 
-	model.DB = db
+	model2.DB = db
 }
 
 func main() {
+	// 初始化配置
+	log.InitLogger(log.DefaultConfig)
+
 	app := iris.New()
 	app.Use(iris.Compression)                // 启用 Gzip 压缩
 	app.Configure(iris.WithCharset("UTF-8")) // 设置字符集
@@ -52,7 +56,7 @@ func main() {
 	// 错误处理
 	app.OnErrorCode(iris.StatusNotFound, func(ctx iris.Context) {
 		ctx.JSON(iris.Map{
-			"errNo": model.ErrorCode.NotFound,
+			"errNo": model2.ErrorCode.NotFound,
 			"msg":   "Not Found",
 			"data":  iris.Map{},
 		})
@@ -60,7 +64,7 @@ func main() {
 
 	app.OnErrorCode(500, func(ctx iris.Context) {
 		ctx.JSON(iris.Map{
-			"errNo": model.ErrorCode.ERROR,
+			"errNo": model2.ErrorCode.ERROR,
 			"msg":   "error",
 			"data":  iris.Map{},
 		})

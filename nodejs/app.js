@@ -30,7 +30,6 @@ for (var key in helpers) {
         hbs.registerHelper(key, helpers[key]);
     }
 }
-
 app.enable('trust proxy');
 app.set('views', path.join(__dirname, 'server', 'views'));
 app.set('view engine', 'hbs');
@@ -40,6 +39,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+var session = require('express-session');
+app.use(session({
+    secret: '123456',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 24 * 60 * 60 * 1000 } // 24小时
+}));
 app.use(function(req, res, next) {
     res.set('X-Powered-By', config.webPoweredBy);
     var locals            = res.locals;

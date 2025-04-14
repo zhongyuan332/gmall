@@ -44,7 +44,9 @@ var config = {
 		todayOrderCount : "/admin/order/todaycount",
 		todayOrderSale  : "/admin/order/todaysale",
 		totalOrderCount : "/admin/order/totalcount",
-		totalSale       : "/admin/order/totalsale"
+		totalSale       : "/admin/order/totalsale",
+		userAuth        : "/admin/user/login"  // 新增的用户认证 API
+
 	},
 	docs: {
 		github: configData.docs.github
