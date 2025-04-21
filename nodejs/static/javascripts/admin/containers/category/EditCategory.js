@@ -179,7 +179,7 @@ class EitCategory extends Component {
                         </Col>
                     </Col>
                 </Row>
-                <Software />
+                {/*<Software />*/}
             </div>
         );
     }

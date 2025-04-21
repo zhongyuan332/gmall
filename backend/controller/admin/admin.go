@@ -25,6 +25,7 @@ func Authentication(ctx iris.Context) {
 
 	// 检查是否已登录
 	if !isLoggedIn {
+		logger.Warn("User not logged in, redirecting to login page")
 		ctx.JSON(iris.Map{
 			"errNo": model.ErrorCode.LoginExpired,
 			"msg":   "登录已过期",
@@ -40,6 +41,7 @@ func Authentication(ctx iris.Context) {
 	// 如果不活动超过30分钟，则要求重新登录
 	const maxInactiveTime int64 = 30 * 60 // 30分钟
 	if inactiveFor > maxInactiveTime {
+		logger.Warnf("Session expired for user %s, inactive for %d seconds", session.GetStringDefault(UsernameKey, ""), inactiveFor)
 		// 清除会话并重定向到登录页面
 		session.Delete(IsLoggedInKey)
 		ctx.Redirect("/login?expired=true", iris.StatusFound)

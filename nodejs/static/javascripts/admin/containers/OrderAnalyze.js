@@ -88,7 +88,7 @@ class OrderAnalyze extends Component {
                         </div>
                     </Col>
                 </Row>
-                <Software />
+                {/*<Software />*/}
             </div>
         );
     }

@@ -90,7 +90,16 @@ class Index extends Component {
                         </div>
                     </Col>
                 </Row>
-                <Software />
+                {/* Footer */}
+                <div className="bg-gray-100 py-3 text-center text-sm text-gray-500 border-t border-gray-200">
+                    <div className="flex justify-center items-center space-x-3">
+                        <span>商品轩商城系统 v1.0.0</span>
+                        <span>|</span>
+                        <a href="http://shangxixuan.com" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+                            官方网站
+                        </a>
+                    </div>
+                </div>
             </div>
         );
     }

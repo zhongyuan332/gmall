@@ -720,7 +720,7 @@ class EditProduct extends Component {
                         <Button className="submit-cancel-btn" size="large">取消</Button>
                     </Col>
                 </Row>
-                <Software />
+                {/*<Software />*/}
             </div>
         );
     }
