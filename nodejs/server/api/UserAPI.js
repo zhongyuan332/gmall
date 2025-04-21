@@ -18,7 +18,7 @@ function authenticate(req, username, password) {
                 password: password
             }
         }, function(error, response, data) {
-            console.log('UserAPI.js authenticate', error, response, data);
+            console.log('UserAPI.js authenticate', error, data);
             if (data && data.errNo != ErrorCode.SUCCESS) {
                 reject(data);
             } else if (!error && response.statusCode == 200 && data && data.errNo === ErrorCode.SUCCESS) {

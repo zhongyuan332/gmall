@@ -17,9 +17,7 @@ module.exports = function(app) {
 	});
 	// 显示登录页面
 	app.get('/login', function(req, res) {
-		res.render('admin/login', {
-			layout: 'login' // 可选，如果您有特定的登录布局
-		});
+		res.render('admin/login');
 	});
 	// 处理登录请求
 	app.post('/login', function(req, res) {
@@ -35,10 +33,11 @@ module.exports = function(app) {
 
 		UserAPI.authenticate(req, username, password)
 			.then(function(user) {
+				console.log('UserAPI.js authenticate success', user);
 				// 登录成功，保存用户信息到 session
 				req.session.user = user;
 				// 重定向到管理页面
-				res.redirect('/admin');
+				res.render('admin/index');
 			})
 			.catch(function(err) {
 				// 登录失败，显示错误信息
